@@ -607,9 +607,12 @@
 
   /* Booking status tags */
   .tag-booked { background: rgba(0,230,138,0.15); color: var(--aurora-green); border: 1px solid rgba(0,230,138,0.25); }
-  .tag-action { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.25); }
+  .tag-confirmed { background: rgba(0,212,170,0.14); color: var(--aurora-teal); border: 1px solid rgba(0,212,170,0.3); }
+  .tag-waiting { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.25); }
+  .tag-toconfirm { background: rgba(251,146,60,0.12); color: #fdba74; border: 1px solid rgba(251,146,60,0.25); }
   .tag-tobook { background: rgba(34,211,238,0.12); color: #22d3ee; border: 1px solid rgba(34,211,238,0.25); }
   .tag-optional { background: rgba(148,163,184,0.15); color: #cbd5e1; border: 1px solid rgba(148,163,184,0.2); }
+  .tag-flexible { background: rgba(123,47,247,0.15); color: #c4b5fd; border: 1px solid rgba(123,47,247,0.3); }
 
   /* Costs */
   .costs {
@@ -1137,7 +1140,7 @@
         <div class="hero-stat-label">城市</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-value">4–5</div>
+        <div class="hero-stat-value">5+</div>
         <div class="hero-stat-label">极光机会</div>
       </div>
       <div class="hero-stat">
@@ -1259,13 +1262,29 @@
             <div class="sched-sub">Airbnb 地址：Valtakatu 40, 96200 Rovaniemi</div>
           </div>
         </div>
-        <div class="sched-label">夜晚</div>
+        <div class="sched-label">夜晚 — 集合与返程方式已确认</div>
+        <div class="sched-row">
+          <span class="sched-time">18:40</span>
+          <div class="sched-dot-col"><div class="sched-dot dim"></div></div>
+          <div class="sched-text">
+            <div class="sched-main">从 Airbnb 出发，前往 Wild About Lapland Office</div>
+            <div class="sched-sub">Meeting Point：Wild About Lapland Office · 自行前往 · 19:00 前抵达 <span class="tag tag-confirmed">CONFIRMED</span></div>
+          </div>
+        </div>
         <div class="sched-row">
           <span class="sched-time">19:00</span>
           <div class="sched-dot-col"><div class="sched-dot"></div></div>
           <div class="sched-text">
-            <div class="sched-main">Guaranteed Northern Lights Hunting Adventure in Lapland <span class="tag tag-core">核心</span> <span class="tag tag-action">BOOKED – ACTION REQUIRED</span></div>
-            <div class="sched-sub">Wild About Lapland · 19:00–02:00 (7h) · 2 adults · €340 / 2人<br>当前 pickup / drop-off：Postmaster Hotel, Postikatu 1 · 已发邮件询问能否改为 Airbnb Valtakatu 40 直接接送</div>
+            <div class="sched-main">Guaranteed Northern Lights Hunting Adventure <span class="tag tag-core">核心</span> <span class="tag tag-booked">BOOKED</span></div>
+            <div class="sched-sub">Wild About Lapland · 19:00–02:00 (约 7h) · 2 adults · €340 / 2人 · 含专业导游摄影</div>
+          </div>
+        </div>
+        <div class="sched-row">
+          <span class="sched-time">02:00</span>
+          <div class="sched-dot-col"><div class="sched-dot dim"></div></div>
+          <div class="sched-text">
+            <div class="sched-main">返程 · 可直接送回住宿 <span class="tag tag-confirmed">CONFIRMED</span></div>
+            <div class="sched-sub">&#9888;&#65039; 返程提醒：活动当天告诉导游/司机，需要送回 Airbnb（Valtakatu 40）。</div>
           </div>
         </div>
       </div>
@@ -1292,36 +1311,72 @@
         </div>
       </div>
       <div class="sched">
-        <div class="sched-label">全天活动</div>
+        <div class="sched-label">预订信息 — 官方直订</div>
+        <div class="sched-row">
+          <span class="sched-time">已付清</span>
+          <div class="sched-dot-col"><div class="sched-dot"></div></div>
+          <div class="sched-text">
+            <div class="sched-main">Icebreaker Sampo Afternoon Cruise with transfer from Rovaniemi <span class="tag tag-core">核心</span> <span class="tag tag-booked">BOOKED / PAID</span></div>
+            <div class="sched-sub">The Icebreaking Company（Icebreaker Sampo 官网直订）· 2 adults · Cruise package €1,052 + Photography Service €60 = <strong>€1,112 / 2人</strong> · PAID IN FULL · Balance €0<br>包含：Rovaniemi 往返 shuttle bus · 4 小时破冰船巡航 · 无酒精热饮迎宾 · Guided ship tour · Ice floating（最低身高 140cm）· Walking on the frozen sea（weather permitting）· 船上午餐 · 参与证书 · SnowExperience 门票 · Gemstone exhibition 门票 · SnowCastle 区展览/体验<br>摄影服务（€30/人 ×2）：巡航全程不限量拍摄 · 含 ice floating 环节拍摄 · 数字交付 · 两人均已提前订好 <span class="tag tag-booked">BOOKED</span></div>
+          </div>
+        </div>
+        <div class="sched-label">当天时间线</div>
+        <div class="sched-row">
+          <span class="sched-time">09:50</span>
+          <div class="sched-dot-col"><div class="sched-dot dim"></div></div>
+          <div class="sched-text">
+            <div class="sched-main">抵达 Scandic Pohjanhovi Hotel 门口等候 <span class="tag tag-waiting">WAITING FOR REPLY</span></div>
+            <div class="sched-sub">Pohjanpuistikko 2, Rovaniemi · 已邮件申请确认 Scandic Pohjanhovi Hotel 10:00 上车，等待官方回复。官方确认前该站点不视为最终确定</div>
+          </div>
+        </div>
         <div class="sched-row">
           <span class="sched-time">10:00</span>
           <div class="sched-dot-col"><div class="sched-dot dim"></div></div>
+          <div class="sched-text"><div class="sched-main">计划 Sampo shuttle 发车（待运营方确认站点）</div></div>
+        </div>
+        <div class="sched-row">
+          <span class="sched-time">11:30</span>
+          <div class="sched-dot-col"><div class="sched-dot dim"></div></div>
           <div class="sched-text">
-            <div class="sched-main">预计 pickup（Rovaniemi transfer package）</div>
-            <div class="sched-sub">Preferred pickup：Scandic Pohjanhovi Hotel · Airbnb Valtakatu 40 距离该 pickup 点很近</div>
+            <div class="sched-main">抵达 Kemi SnowCastle 区</div>
+            <div class="sched-sub">11:30–12:45 · Cruise check-in + SnowCastle 展览</div>
           </div>
+        </div>
+        <div class="sched-row">
+          <span class="sched-time">13:00</span>
+          <div class="sched-dot-col"><div class="sched-dot dim"></div></div>
+          <div class="sched-text"><div class="sched-main">SnowCastle 区出发 → 港口 · 13:15 抵达 Sampo 码头</div></div>
         </div>
         <div class="sched-row">
           <span class="sched-time">13:30</span>
           <div class="sched-dot-col"><div class="sched-dot"></div></div>
           <div class="sched-text">
-            <div class="sched-main">Sampo Icebreaker Afternoon Cruise <span class="tag tag-core">核心</span> <span class="tag tag-action">BOOKED – ACTION REQUIRED</span></div>
-            <div class="sched-sub">Klook 预订 · 2 adults · 13:30–17:30 (4h) · 包含 ice floating、walking on frozen sea（weather permitting）、ship tour、lunch、welcome drink、SnowCastle exhibition、Rovaniemi round-trip transfer<br>订单确认后需邮件确认 / 修改 pickup point 为 Scandic Pohjanhovi</div>
+            <div class="sched-main">Icebreaker Sampo Cruise · 13:30–17:30 (4h)</div>
+            <div class="sched-sub">Lunch · Ship tour · Ice floating · Frozen sea activities</div>
+          </div>
+        </div>
+        <div class="sched-row">
+          <span class="sched-time">17:40</span>
+          <div class="sched-dot-col"><div class="sched-dot dim"></div></div>
+          <div class="sched-text">
+            <div class="sched-main">离港 · 17:50 SnowCastle 区短停 5 分钟</div>
           </div>
         </div>
         <div class="sched-row">
           <span class="sched-time">19:40</span>
           <div class="sched-dot-col"><div class="sched-dot dim"></div></div>
           <div class="sched-text">
-            <div class="sched-main">预计回到 Rovaniemi</div>
-            <div class="sched-sub">当晚不安排其他活动 · 休息</div>
+            <div class="sched-main">预计回到 Scandic Pohjanhovi Hotel</div>
+            <div class="sched-sub">返程时间为估算，视路况而定 · 当晚不安排其他活动，休息</div>
           </div>
         </div>
       </div>
       <div class="costs">
-        <div class="cost-chip"><span class="c-label">破冰船</span><span class="c-val">S$1,560.90 / 2人</span></div>
+        <div class="cost-chip"><span class="c-label">Cruise + 接送</span><span class="c-val">€1,052 / 2人</span></div>
+        <div class="cost-chip"><span class="c-label">摄影服务</span><span class="c-val">€60 / 2人</span></div>
+        <div class="cost-chip"><span class="c-label">合计</span><span class="c-val">€1,112 / 2人 · 已付清</span></div>
       </div>
-      <div class="transport-note">&#128652; 含 Rovaniemi 往返接送 · 取消政策：2026年12月21日 13:30（Lapland time）之前可取消</div>
+      <div class="transport-note">&#128652; 取消政策（官方）：Free cancellation when made no later than 14 days before the start of the reservation (GMT+2)，截止前取消全额退款，可通过官方 My Page 或联系运营方办理 · 建议最晚 2026/12/20 前处理取消，避免卡 14 天截止时间</div>
     </div>
   </div>
 
@@ -1357,11 +1412,24 @@
         </div>
         <div class="sched-label">夜晚</div>
         <div class="sched-row">
+          <span class="sched-time">19:30</span>
+          <div class="sched-dot-col"><div class="sched-dot dim"></div></div>
+          <div class="sched-text">
+            <div class="sched-main">抵达官方集合点 City Center · Korkalonkatu 23 <span class="tag tag-waiting">WAITING FOR REPLY</span></div>
+            <div class="sched-sub">官方集合点：Korkalonkatu 23, 96200 Rovaniemi · 19:40 发车 · Apukka 要求提前约 10 分钟到达<br>已邮件申请：Airbnb（Valtakatu 40）直接接送 + 活动结束送回 Airbnb，等待 Apukka 回复 · 在获得确认前以官方集合点为准<br>&#9888;&#65039; If no alternative pickup is confirmed, arrive at Korkalonkatu 23 by 19:30.</div>
+          </div>
+        </div>
+        <div class="sched-row">
+          <span class="sched-time">19:40</span>
+          <div class="sched-dot-col"><div class="sched-dot dim"></div></div>
+          <div class="sched-text"><div class="sched-main">Apukka Shuttle 发车</div></div>
+        </div>
+        <div class="sched-row">
           <span class="sched-time">20:30</span>
           <div class="sched-dot-col"><div class="sched-dot"></div></div>
           <div class="sched-text">
-            <div class="sched-main">Apukka Snowtrain to Northern Lights Camp <span class="tag tag-core">核心</span> <span class="tag tag-booked">BOOKED</span></div>
-            <div class="sched-sub">Apukka Resort · 20:30 开始 · 约 3 小时 · Snowtrain + Arctic forest + Northern Lights Camp + campfire · 包含篝火、热饮/小食及冬季装备等（以最终 voucher 为准）· 增加一个观测极光的晚上</div>
+            <div class="sched-main">Snowtrain to Northern Lights Camp <span class="tag tag-core">核心</span> <span class="tag tag-booked">BOOKED</span></div>
+            <div class="sched-sub">Apukka Resort · 约 3 小时 · Snowtrain + Arctic forest + Northern Lights Camp + campfire · 包含篝火、热饮/小食及冬季装备等（以最终 voucher 为准）· 固定极光营地体验（非长距离移动追云团）· 增加一个观测极光的晚上</div>
           </div>
         </div>
       </div>
@@ -1389,19 +1457,19 @@
       <div class="sched">
         <div class="sched-label">全天</div>
         <div class="sched-row">
-          <span class="sched-time">07:30</span>
+          <span class="sched-time">接送</span>
           <div class="sched-dot-col"><div class="sched-dot dim"></div></div>
           <div class="sched-text">
-            <div class="sched-main">Pick-up</div>
-            <div class="sched-sub">当前 pickup：Postmaster Hotel Rovaniemi, Postikatu 1, 96100 · 已在订单备注请求改为 Airbnb Valtakatu 40, 96200 接送，待确认</div>
+            <div class="sched-main">Pickup：等待 Beyond Arctic 确认 <span class="tag tag-waiting">WAITING FOR REPLY</span></div>
+            <div class="sched-sub">已邮件申请：Airbnb（Valtakatu 40）直接接送；如无法到住宿接送，请提供最近的集合点及时间；活动结束送回 Valtakatu 40 · 集合点/时间以运营方回复为准</div>
           </div>
         </div>
         <div class="sched-row">
-          <span class="sched-time">08:00</span>
+          <span class="sched-time">全天</span>
           <div class="sched-dot-col"><div class="sched-dot"></div></div>
           <div class="sched-text">
-            <div class="sched-main">Beyond Arctic – Korouoma Frozen Waterfalls Adventure <span class="tag tag-core">核心</span> <span class="tag tag-action">BOOKED – ACTION REQUIRED</span></div>
-            <div class="sched-sub">Beyond Arctic · 08:00–15:00 (7 hours) · 2 adults · Small group · Frozen waterfall hiking · Campfire lunch · Photography-oriented guide</div>
+            <div class="sched-main">Beyond Arctic – Korouoma Frozen Waterfalls Adventure <span class="tag tag-core">核心</span> <span class="tag tag-booked">BOOKED</span></div>
+            <div class="sched-sub">Beyond Arctic · 约 6–7 小时 · 2 adults · Small group / minivan · Frozen waterfall hiking（约 3 km 徒步）· Campfire lunch · Photography-oriented guide · 含冬季装备</div>
           </div>
         </div>
       </div>
@@ -1446,7 +1514,7 @@
           <div class="sched-dot-col"><div class="sched-dot dim"></div></div>
           <div class="sched-text">
             <div class="sched-main">Airbnb Valtakatu 40 出发</div>
-            <div class="sched-sub">Taxi → Rovaniemi Bus Station <span class="tag tag-tobook">TO BOOK</span></div>
+            <div class="sched-sub">Taxi → Rovaniemi Bus Station <span class="tag tag-tobook">TO ARRANGE</span></div>
           </div>
         </div>
         <div class="sched-row">
@@ -1458,8 +1526,8 @@
           <span class="sched-time">11:45</span>
           <div class="sched-dot-col"><div class="sched-dot"></div></div>
           <div class="sched-text">
-            <div class="sched-main">长途大巴 Rovaniemi → Saariselkä <span class="tag tag-booked">BOOKED</span></div>
-            <div class="sched-sub">Eskelisen Lapin Linjat · Matkahuolto 票 · Rovaniemi Bus Station Bay 2 · 3h45m · €99.60 / 2人 · No seat reservation</div>
+            <div class="sched-main">长途大巴 Rovaniemi → Saariselkä Holiday Club <span class="tag tag-booked">BOOKED</span></div>
+            <div class="sched-sub">Eskelisen Lapin Linjat · Matkahuolto 票 · Rovaniemi → Karasjok express · Rovaniemi Bus Station Bay 2 · 11:45 → 15:30 (3h45m) · €49.80/人 · €99.60 / 2人 · No seat reservation · 我们的下车点是 Saariselkä Holiday Club</div>
           </div>
         </div>
         <div class="sched-row">
@@ -1467,7 +1535,7 @@
           <div class="sched-dot-col"><div class="sched-dot dim"></div></div>
           <div class="sched-text">
             <div class="sched-main">抵达 Saariselkä Holiday Club</div>
-            <div class="sched-sub">Holiday Club → NLV：待向 NLV 确认 pickup；如不提供则短程 Taxi <span class="tag tag-tobook">TO BOOK</span></div>
+            <div class="sched-sub">Holiday Club → NLV：需询问 NLV 是否提供 pickup；如不提供则短程本地 Taxi <span class="tag tag-toconfirm">TO CONFIRM</span></div>
           </div>
         </div>
         <div class="sched-row">
@@ -1475,7 +1543,7 @@
           <div class="sched-dot-col"><div class="sched-dot dim"></div></div>
           <div class="sched-text">
             <div class="sched-main">入住 Northern Lights Village <span class="tag tag-booked">BOOKED</span></div>
-            <div class="sched-sub">1月7–9日 · 2 nights · Glass-roof Aurora Cabin · Stay &amp; Dine · €1,288 / 2晚 · Non-refundable</div>
+            <div class="sched-sub">1月7–9日 · 2 nights · Glass-roof Aurora Cabin · Stay &amp; Dine（含早餐、晚餐、入住期间户外装备）· €1,288 / 2人 · Non-refundable</div>
           </div>
         </div>
         <div class="sched-label">夜晚</div>
@@ -1503,7 +1571,7 @@
       <div class="day-header">
         <div class="day-num c-pink">6</div>
         <div class="day-title-block">
-          <h2>冰钓（可选）+ 雪地摩托追极光</h2>
+          <h2>冰钓（可选）+ 极光机动夜</h2>
           <div class="day-meta">
             <span class="day-date">1月8日 周五</span>
             <span class="day-loc">&#128205; NLV / Saariselkä</span>
@@ -1529,19 +1597,19 @@
             <div class="sched-sub">为晚上蓄力</div>
           </div>
         </div>
-        <div class="sched-label">夜晚</div>
+        <div class="sched-label">夜晚 — Aurora Night Strategy（最后的机动保险夜）</div>
         <div class="sched-row">
           <span class="sched-time">晚间</span>
           <div class="sched-dot-col"><div class="sched-dot"></div></div>
           <div class="sched-text">
-            <div class="sched-main">Aurora Snowmobile <span class="tag tag-core">核心</span> <span class="tag tag-tobook">TO BOOK</span></div>
-            <div class="sched-sub">优先 NLV 自己的项目 · 预计 2.5–3 小时 · 返回后继续在 glass cabin 看极光</div>
+            <div class="sched-main">Aurora Evening <span class="tag tag-flexible">FLEXIBLE / DECIDE LOCALLY</span></div>
+            <div class="sched-sub"><strong>Option A · Aurora Snowmobile</strong> — 前几晚已成功看到强极光时选择，换一种拉普兰体验（雪地摩托沿固定路线进入更暗的荒野区）<br><strong>Option B · Mobile Minivan Aurora Chase</strong> — 前几晚只看到弱极光：结合 1/8 当天云图和天气再定；<strong>如果到 1/8 还没成功看到极光 → 优先选真正的移动小巴追猎</strong>（小巴可以开更远追晴空，比雪地摩托灵活得多）<br>结束后返回 glass-roof cabin · Glass Cabin Night 2 被动极光机会</div>
           </div>
         </div>
       </div>
       <div class="costs">
-        <div class="cost-chip"><span class="c-label">冰钓</span><span class="c-val">OPTIONAL · 未订</span></div>
-        <div class="cost-chip"><span class="c-label">雪地摩托</span><span class="c-val">TO BOOK · 未订</span></div>
+        <div class="cost-chip"><span class="c-label">冰钓</span><span class="c-val">OPTIONAL · 现场决定</span></div>
+        <div class="cost-chip"><span class="c-label">极光机动夜</span><span class="c-val">FLEXIBLE · 现场决定</span></div>
       </div>
     </div>
   </div>
@@ -1568,7 +1636,7 @@
           <div class="sched-dot-col"><div class="sched-dot"></div></div>
           <div class="sched-text">
             <div class="sched-main">NLV 10km Husky Safari <span class="tag tag-core">核心</span> <span class="tag tag-tobook">TO BOOK</span></div>
-            <div class="sched-sub">希望选择 self-operated / self-driving husky experience · 具体时间及价格待确认</div>
+            <div class="sched-sub">Northern Lights Village Saariselkä 提供 10km Husky Safari · 约 10 km · 总时长约 1h45 · 实际滑行约 1 小时 · 2 人一雪橇 · 自驾（guest/self-driving）· 含冬季装备 · 热浆果汁<br>目标：1月9日上午时段 · <strong>最晚约 14:00 前结束</strong>（IVL→HEL 航班 18:35 起飞）· 如有合适上午时段，NLV 项目在便利性/性价比上优先</div>
           </div>
         </div>
         <div class="sched-row">
@@ -1694,7 +1762,7 @@
 <section class="budget-section">
   <span class="section-label">预算</span>
   <h2 class="section-title">费用明细</h2>
-  <p class="section-desc">已预订 / 已记录费用按支付币种分列（CNY / EUR / SGD），不做混合相加。</p>
+  <p class="section-desc">已预订 / 已记录费用按实际支付币种分列（CNY / EUR），不做混合相加。</p>
 
   <div class="budget-grid">
     <div class="b-card b-stay">
@@ -1712,10 +1780,11 @@
       <div class="b-card-icon">&#127967;</div>
       <h3>活动（已确定 · 已预订）</h3>
       <div class="b-line"><span class="b-l">Jan 3 · Wild About Lapland Guaranteed Aurora Hunt</span><span class="b-v">€340</span></div>
-      <div class="b-line"><span class="b-l">Jan 4 · Sampo Icebreaker Afternoon Cruise</span><span class="b-v">S$1,560.90</span></div>
+      <div class="b-line"><span class="b-l">Jan 4 · Sampo Icebreaker Cruise + Photography（官网直订 · 已付清）</span><span class="b-v">€1,112</span></div>
+      <div class="b-line"><span class="b-l">&nbsp;&nbsp;&#8627; Cruise + Rovaniemi transfer €1,052 · Photography €60</span><span class="b-v opt">BOOKED / PAID</span></div>
       <div class="b-line"><span class="b-l">Jan 5 · Apukka Snowtrain to Northern Lights Camp</span><span class="b-v">€224</span></div>
       <div class="b-line"><span class="b-l">Jan 6 · Beyond Arctic Korouoma Frozen Waterfalls</span><span class="b-v">€290</span></div>
-      <div class="b-sub"><span class="b-l">小计</span><span class="b-v">€854 + S$1,560.90</span></div>
+      <div class="b-sub"><span class="b-l">小计</span><span class="b-v">€1,966</span></div>
     </div>
 
     <div class="b-card b-trans">
@@ -1732,9 +1801,10 @@
       <div class="b-card-icon">&#128203;</div>
       <h3>待预订 / 未计入已花费</h3>
       <div class="b-line"><span class="b-l">Jan 8 · 3h Ice Fishing</span><span class="b-v opt">OPTIONAL</span></div>
-      <div class="b-line"><span class="b-l">Jan 8 · NLV Aurora Snowmobile</span><span class="b-v opt">TO BOOK</span></div>
+      <div class="b-line"><span class="b-l">Jan 8 · 极光机动夜（Snowmobile / 小巴追猎）</span><span class="b-v opt">FLEXIBLE</span></div>
       <div class="b-line"><span class="b-l">Jan 9 · NLV 10km Husky Safari</span><span class="b-v opt">TO BOOK</span></div>
-      <div class="b-line"><span class="b-l">各段短途接送 / Taxi</span><span class="b-v opt">TO BOOK</span></div>
+      <div class="b-line"><span class="b-l">Jan 9 · NLV → Ivalo Airport 接送</span><span class="b-v opt">TO BOOK</span></div>
+      <div class="b-line"><span class="b-l">各段短途接送 / Taxi</span><span class="b-v opt">TO ARRANGE</span></div>
       <div class="b-line"><span class="b-l">未含餐食</span><span class="b-v opt">现场支付</span></div>
       <div class="b-sub"><span class="b-l">小计</span><span class="b-v">未计入</span></div>
     </div>
@@ -1742,9 +1812,9 @@
 
   <div class="total-card">
     <div class="total-label">Booked / Recorded So Far</div>
-    <div class="total-value" style="font-size: clamp(1.5rem, 3.5vw, 2.4rem);">CNY 27,887 &middot; EUR 2,386.60 &middot; SGD 1,560.90</div>
+    <div class="total-value" style="font-size: clamp(1.5rem, 3.5vw, 2.4rem);">CNY 27,887 &middot; EUR 3,498.60</div>
     <div class="total-note" id="sgd-estimate"></div>
-    <div class="total-note">以上为已预订 / 已记录费用（2人合计）· 三种币种分列，不混合相加<br>Estimated SGD equivalent based on displayed exchange rate; actual card charges may differ.</div>
+    <div class="total-note">以上为已预订 / 已记录费用（2人合计），按实际支付币种分列，不混合相加<br>Estimated SGD equivalent based on displayed exchange rate; actual card charges may differ.</div>
   </div>
 </section>
 
@@ -1753,11 +1823,43 @@
   <span class="section-label">预订</span>
   <h2 class="section-title">预订状态总览</h2>
   <p class="section-desc">
-    <span class="tag tag-booked">BOOKED</span> 已付款/确认&nbsp;&nbsp;
-    <span class="tag tag-action">BOOKED – ACTION REQUIRED</span> 已订但还需确认接送等&nbsp;&nbsp;
-    <span class="tag tag-tobook">TO BOOK</span> 确定要参加但还没订&nbsp;&nbsp;
-    <span class="tag tag-optional">OPTIONAL</span> 看体力/天气决定
+    <span class="tag tag-booked">BOOKED</span> 已购买/已付款&nbsp;&nbsp;
+    <span class="tag tag-confirmed">CONFIRMED</span> 具体安排已获运营方明确确认&nbsp;&nbsp;
+    <span class="tag tag-waiting">WAITING FOR REPLY</span> 邮件/请求已发出，等待回复&nbsp;&nbsp;
+    <span class="tag tag-tobook">TO BOOK</span> 尚需预订&nbsp;&nbsp;
+    <span class="tag tag-toconfirm">TO CONFIRM</span> 信息/安排尚需确认&nbsp;&nbsp;
+    <span class="tag tag-optional">OPTIONAL</span> 无需提前承诺&nbsp;&nbsp;
+    <span class="tag tag-flexible">FLEXIBLE</span> 刻意保留机动（天气/极光策略）<br><br>
+    注意：BOOKED 与 CONFIRMED 不混用 — 例如 Apukka Snowtrain 活动本身 = BOOKED，Apukka 的 Airbnb 接送申请 = WAITING FOR REPLY。
   </p>
+
+  <div class="book-phase">
+    <div class="book-phase-head">
+      <span class="book-phase-icon">&#9989;</span>
+      <span class="book-phase-title">Before Trip Checklist · 出发前待办速览</span>
+    </div>
+    <table class="book-table">
+      <thead><tr><th>类别</th><th>事项</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="tag tag-waiting">WAITING FOR REPLY</span></td>
+          <td class="note">&#9744; Sampo：Scandic Pohjanhovi 10:00 上车点确认&nbsp;&nbsp;&#9744; Apukka：Airbnb 接送申请回复&nbsp;&nbsp;&#9744; Beyond Arctic：Airbnb 接送/集合点回复</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-toconfirm">TO CONFIRM</span></td>
+          <td class="note">&#9744; 1/7 Saariselkä Holiday Club → NLV 交通</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-tobook">TO BOOK</span></td>
+          <td class="note">&#9744; 1/9 NLV 10km Husky（上午时段）&nbsp;&nbsp;&#9744; 1/9 NLV → Ivalo Airport 接送（Husky 时段定了再订）</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-flexible">FLEXIBLE / OPTIONAL</span></td>
+          <td class="note">&#9744; 1/8 极光机动夜现场决定（Snowmobile vs 小巴追猎）&nbsp;&nbsp;&#9744; 1/8 冰钓看体力/天气</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="book-phase">
     <div class="book-phase-head">
@@ -1768,28 +1870,28 @@
       <thead><tr><th>日期 / 活动</th><th>服务商</th><th>价格 (2人)</th><th>状态 / 备注</th></tr></thead>
       <tbody>
         <tr>
-          <td>Jan 3 · Guaranteed Aurora Hunt (19:00–02:00, 7h)</td>
+          <td>Jan 3 · Guaranteed Northern Lights Hunting Adventure (19:00–02:00, ~7h)</td>
           <td class="prov">Wild About Lapland</td>
           <td>€340</td>
-          <td class="note"><span class="tag tag-action">BOOKED – ACTION REQUIRED</span><br>当前 pickup：Postmaster Hotel, Postikatu 1 · 已邮件询问改为 Airbnb Valtakatu 40 接送，待回复</td>
+          <td class="note"><span class="tag tag-booked">BOOKED</span> 交通 <span class="tag tag-confirmed">CONFIRMED</span><br>自行前往 Wild About Lapland Office 集合 · 返程可送回住宿（活动当天告诉导游/司机送回 Airbnb Valtakatu 40）· 含专业导游摄影</td>
         </tr>
         <tr>
-          <td>Jan 4 · Sampo Icebreaker Afternoon Cruise (13:30–17:30)</td>
-          <td class="prov">Klook</td>
-          <td>S$1,560.90</td>
-          <td class="note"><span class="tag tag-action">BOOKED – ACTION REQUIRED</span><br>需邮件确认/修改 pickup point 为 Scandic Pohjanhovi · 2026-12-21 13:30 (Lapland time) 前可取消</td>
+          <td>Jan 4 · Icebreaker Sampo Afternoon Cruise with transfer from Rovaniemi (13:30–17:30)</td>
+          <td class="prov">The Icebreaking Company（官网直订）</td>
+          <td>€1,112<br><span class="note">Cruise €1,052 + 摄影 €60</span></td>
+          <td class="note"><span class="tag tag-booked">BOOKED / PAID</span> 上车点 <span class="tag tag-waiting">WAITING FOR REPLY</span><br>已付清 · Balance €0 · 含 Rovaniemi 往返 shuttle · 已邮件申请确认 Scandic Pohjanhovi Hotel 10:00 上车，等待官方回复<br>取消政策：开始前 14 天（GMT+2）之前免费取消，全额退款 · 建议最晚 2026/12/20 前处理</td>
         </tr>
         <tr>
-          <td>Jan 5 · Snowtrain to Northern Lights Camp (20:30, ~3h)</td>
+          <td>Jan 5 · Snowtrain to Northern Lights Camp (~3h)</td>
           <td class="prov">Apukka Resort</td>
           <td>€224</td>
-          <td class="note"><span class="tag tag-booked">BOOKED</span><br>包含项目以最终 voucher 为准</td>
+          <td class="note"><span class="tag tag-booked">BOOKED</span> 接送 <span class="tag tag-waiting">WAITING FOR REPLY</span><br>官方集合点：Korkalonkatu 23 · 19:40（提前 10 分钟到）· 已邮件申请 Airbnb 接送 + 送回，待回复 · 包含项目以最终 voucher 为准</td>
         </tr>
         <tr>
-          <td>Jan 6 · Korouoma Frozen Waterfalls Adventure (08:00–15:00, 7h)</td>
+          <td>Jan 6 · Korouoma Frozen Waterfalls Adventure (~6–7h)</td>
           <td class="prov">Beyond Arctic</td>
           <td>€290</td>
-          <td class="note"><span class="tag tag-action">BOOKED – ACTION REQUIRED</span><br>Pickup 07:30 · Postmaster Hotel, Postikatu 1 · 已在订单备注请求改为 Airbnb Valtakatu 40，待确认</td>
+          <td class="note"><span class="tag tag-booked">BOOKED</span> 接送 <span class="tag tag-waiting">WAITING FOR REPLY</span><br>已邮件申请 Airbnb（Valtakatu 40）接送/送回或最近集合点，集合点与时间以运营方回复为准</td>
         </tr>
       </tbody>
     </table>
@@ -1818,8 +1920,8 @@
         <tr>
           <td>Jan 7 · RVN Bus Station (Bay 2) 11:45 → Saariselkä Holiday Club 15:30 · 3h45m</td>
           <td class="prov">Eskelisen Lapin Linjat / Matkahuolto</td>
-          <td>€99.60</td>
-          <td class="note"><span class="tag tag-booked">BOOKED</span><br>No seat reservation</td>
+          <td>€99.60<br><span class="note">€49.80/人</span></td>
+          <td class="note"><span class="tag tag-booked">BOOKED</span><br>Rovaniemi → Karasjok express · No seat reservation · 下车点为 Saariselkä Holiday Club</td>
         </tr>
         <tr>
           <td>Jan 9 · IVL → HEL · 18:35 → 20:05</td>
@@ -1863,59 +1965,95 @@
 
   <div class="book-phase">
     <div class="book-phase-head">
+      <span class="book-phase-icon">&#128652;</span>
+      <span class="book-phase-title">接送 / 地面交通状态总览</span>
+    </div>
+    <table class="book-table">
+      <thead><tr><th>日期</th><th>路线 / 项目</th><th>状态</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Jan 3</td>
+          <td class="prov">Wild About Lapland 集合与返程</td>
+          <td><span class="tag tag-confirmed">CONFIRMED</span></td>
+          <td class="note">自行前往 Wild About Lapland Office 集合 · 返程可送回 Airbnb —— 活动当天告诉导游/司机</td>
+        </tr>
+        <tr>
+          <td>Jan 4</td>
+          <td class="prov">Sampo Icebreaker 官方 shuttle</td>
+          <td><span class="tag tag-waiting">WAITING FOR REPLY</span></td>
+          <td class="note">官方 Rovaniemi shuttle 已含在预订内 · 已申请 Scandic Pohjanhovi Hotel · 计划 10:00 上车 · 官方确认前该站点不视为最终确定</td>
+        </tr>
+        <tr>
+          <td>Jan 5</td>
+          <td class="prov">Apukka Snowtrain 接送</td>
+          <td><span class="tag tag-waiting">WAITING FOR REPLY</span></td>
+          <td class="note">当前官方集合点：Korkalonkatu 23 · 19:40 · 已申请 Airbnb 接送 + 送回 · 若无替代方案确认，19:30 前抵达 Korkalonkatu 23</td>
+        </tr>
+        <tr>
+          <td>Jan 6</td>
+          <td class="prov">Beyond Arctic Korouoma 接送</td>
+          <td><span class="tag tag-waiting">WAITING FOR REPLY</span></td>
+          <td class="note">已申请 Airbnb 接送 + 送回 · 集合点/时间等运营方回复</td>
+        </tr>
+        <tr>
+          <td>Jan 7</td>
+          <td class="prov">Airbnb → Rovaniemi Bus Station</td>
+          <td><span class="tag tag-tobook">TO ARRANGE</span></td>
+          <td class="note">Taxi · 建议约 10:55 出发 · 约 11:15 到车站 · 大巴 11:45 发车</td>
+        </tr>
+        <tr>
+          <td>Jan 7</td>
+          <td class="prov">Saariselkä Holiday Club → NLV</td>
+          <td><span class="tag tag-toconfirm">TO CONFIRM</span></td>
+          <td class="note">需询问 NLV 是否提供 pickup · 否则本地短程 Taxi</td>
+        </tr>
+        <tr>
+          <td>Jan 9</td>
+          <td class="prov">NLV → Ivalo Airport</td>
+          <td><span class="tag tag-tobook">TO BOOK</span></td>
+          <td class="note">Husky 时段确定后再安排 · 暂不设定具体时间</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="book-phase">
+    <div class="book-phase-head">
       <span class="book-phase-icon">&#128203;</span>
-      <span class="book-phase-title">TO BOOK / PENDING（未计入已花费）</span>
+      <span class="book-phase-title">其他待办（未计入已花费）</span>
     </div>
     <table class="book-table">
       <thead><tr><th>#</th><th>项目</th><th>状态</th><th>备注</th></tr></thead>
       <tbody>
         <tr>
           <td>1</td>
-          <td class="prov">Jan 8 · 3h Ice Fishing</td>
-          <td><span class="tag tag-optional">OPTIONAL</span></td>
-          <td class="note">根据当天体力决定 · 不建议现在锁定不可退款产品</td>
+          <td class="prov">Jan 9 · NLV 10km Husky Safari（上午时段）</td>
+          <td><span class="tag tag-tobook">TO BOOK</span></td>
+          <td class="note">目标上午时段 · 最晚约 14:00 前结束（配合 18:35 航班）</td>
         </tr>
         <tr>
           <td>2</td>
-          <td class="prov">Jan 8 · NLV Aurora Snowmobile</td>
-          <td><span class="tag tag-tobook">TO BOOK</span></td>
-          <td class="note">优先 NLV 自己的项目 · 预计 2.5–3h</td>
+          <td class="prov">Jan 8 · 极光机动夜（Snowmobile / 小巴追猎 二选一）</td>
+          <td><span class="tag tag-flexible">FLEXIBLE</span></td>
+          <td class="note">刻意保留机动 · 按前几晚极光收获 + 当天云图现场决定</td>
         </tr>
         <tr>
           <td>3</td>
-          <td class="prov">Jan 9 · NLV 10km Husky Safari</td>
-          <td><span class="tag tag-tobook">TO BOOK</span></td>
-          <td class="note">希望 self-driving · 时间及价格待确认</td>
+          <td class="prov">Jan 8 · 3h Ice Fishing</td>
+          <td><span class="tag tag-optional">OPTIONAL</span></td>
+          <td class="note">看天气/体力现场决定 · 无需提前承诺</td>
         </tr>
         <tr>
           <td>4</td>
-          <td class="prov">Jan 9 · NLV → Ivalo Airport transfer</td>
-          <td><span class="tag tag-tobook">TO BOOK</span></td>
-          <td class="note">机场接送尚待预订/确认</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td class="prov">Jan 7 · Saariselkä Holiday Club → NLV transfer / taxi</td>
-          <td><span class="tag tag-tobook">TO BOOK</span></td>
-          <td class="note">待向 NLV 确认是否提供 pickup</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td class="prov">Jan 7 · Rovaniemi Airbnb → Bus Station taxi</td>
-          <td><span class="tag tag-tobook">TO BOOK</span></td>
-          <td class="note">约 10:55 出发</td>
-        </tr>
-        <tr>
-          <td>7</td>
           <td class="prov">Helsinki local transport / airport transport</td>
-          <td><span class="tag tag-tobook">TO BOOK</span></td>
+          <td><span class="tag tag-tobook">TO ARRANGE</span></td>
           <td class="note">机场快线 / 电车等</td>
         </tr>
         <tr>
-          <td>8</td>
+          <td>5</td>
           <td class="prov">未含在住宿 / 活动 package 里的餐食</td>
-          <td><span class="tag tag-tobook">TO BOOK</span></td>
-          <td class="note">现场支付 · 不计入已花费</td>
+          <td><span class="tag tag-optional">现场支付</span></td>
+          <td class="note">不计入已花费</td>
         </tr>
       </tbody>
     </table>
@@ -1936,16 +2074,22 @@
           <td class="note">3h "Ice Fishing by Snowmobile" · <span class="tag tag-optional">OPTIONAL</span></td>
         </tr>
         <tr>
-          <td>D6 雪地摩托</td>
+          <td>D6 极光机动夜 · Option A 雪地摩托</td>
           <td class="prov">NLV 活动中心</td>
           <td>前台 / 官网</td>
-          <td class="note">3h "Aurora Expedition by Snowmobile" · <span class="tag tag-tobook">TO BOOK</span></td>
+          <td class="note">"Aurora Expedition by Snowmobile" · <span class="tag tag-flexible">FLEXIBLE</span> · 与移动小巴追猎二选一，现场决定</td>
+        </tr>
+        <tr>
+          <td>D6 极光机动夜 · Option B 小巴追猎</td>
+          <td class="prov">当地运营商（现场比较）</td>
+          <td>现场 / 线上</td>
+          <td class="note">Mobile Minivan Aurora Chase · <span class="tag tag-flexible">FLEXIBLE</span> · 若此前未成功看到极光优先此项</td>
         </tr>
         <tr>
           <td>D7 哈士奇雪橇</td>
           <td class="prov">NLV 活动中心</td>
           <td>前台 / 官网</td>
-          <td class="note">10km "Husky Safari" · 希望 self-driving · <span class="tag tag-tobook">TO BOOK</span></td>
+          <td class="note">10km "Husky Safari" · 约 1h45（实际滑行约 1h）· 2 人一雪橇 · self-driving · 含冬季装备 + 热浆果汁 · <span class="tag tag-tobook">TO BOOK</span>（目标上午时段）</td>
         </tr>
       </tbody>
     </table>
@@ -1997,19 +2141,19 @@
     <div class="eval-card eval-good">
       <h4>&#9989; 优势</h4>
       <ul>
-        <li>极光成功率高 — 4–5 次独立机会（追猎 / Snowtrain / 玻璃屋两晚 / 雪地摩托）</li>
-        <li>核心项目已全部锁定，节奏舒适不赶</li>
-        <li>D7 航班改为傍晚 18:35，哈士奇当天不需要赶时间</li>
-        <li>玻璃屋没有浪费，两晚都有极光观测</li>
+        <li>极光机会分散在多个夜晚，并结合移动追猎、固定营地、玻璃屋与 Jan 8 机动夜，提高对天气与云量变化的适应能力（1/3 移动追猎 · 1/5 Snowtrain 营地 · 1/7 玻璃屋 · 1/8 机动夜 · 1/8 玻璃屋）</li>
+        <li>罗瓦涅米核心项目均已锁定，萨里山保留部分机动空间</li>
+        <li>D7 航班为傍晚 18:35，哈士奇当天不需要赶时间</li>
+        <li>玻璃屋没有浪费，两晚都有被动极光观测机会</li>
       </ul>
     </div>
     <div class="eval-card eval-tip">
-      <h4>&#128161; 待办事项</h4>
+      <h4>&#128161; 待办 / 提醒</h4>
       <ul>
-        <li><strong>三封 pickup 确认邮件</strong> — Wild About Lapland（改 Airbnb 接送）· Sampo（Scandic Pohjanhovi）· Beyond Arctic（接送点）</li>
-        <li><strong>NLV 项目尽早预订</strong> — Aurora Snowmobile · 10km Husky（希望 self-driving）· Ivalo 机场接送</li>
-        <li><strong>冰钓 (Jan 8)</strong> — 看当天体力再定，不要锁不可退款产品</li>
-        <li><strong>关键取消节点</strong> — Airbnb：12月20日前全额退款 · Sampo：12月21日 13:30 前可取消</li>
+        <li><strong>等待运营方回复</strong> — Sampo（Scandic Pohjanhovi 10:00 上车确认）· Apukka（Airbnb 接送/送回）· Beyond Arctic（Airbnb 接送或集合点），邮件均已发出</li>
+        <li><strong>需要预订</strong> — 1/9 NLV 10km Husky 上午时段 · Husky 定了再订 NLV→Ivalo 机场接送 · 确认 1/7 Holiday Club→NLV 交通</li>
+        <li><strong>保持机动</strong> — 1/8 极光夜 FLEXIBLE（Snowmobile vs 小巴追猎现场决定）· 冰钓 OPTIONAL 不提前锁定</li>
+        <li><strong>关键取消节点</strong> — Airbnb：12月20日前全额退款 · Sampo：开始前 14 天（GMT+2）免费取消，建议最晚 2026/12/20 前处理</li>
       </ul>
     </div>
   </div>
@@ -2034,10 +2178,10 @@
     CNY_TO_SGD: 0.187,   // 1 CNY ≈ 0.187 SGD
     EUR_TO_SGD: 1.51     // 1 EUR ≈ 1.51 SGD
   };
-  var BOOKED = { CNY: 27887, EUR: 2386.60, SGD: 1560.90 };
+  var BOOKED = { CNY: 27887, EUR: 3498.60 };
 
   (function () {
-    var est = BOOKED.CNY * FX.CNY_TO_SGD + BOOKED.EUR * FX.EUR_TO_SGD + BOOKED.SGD;
+    var est = BOOKED.CNY * FX.CNY_TO_SGD + BOOKED.EUR * FX.EUR_TO_SGD;
     var el = document.getElementById('sgd-estimate');
     if (el) {
       el.textContent = '≈ SGD ' + Math.round(est).toLocaleString()
