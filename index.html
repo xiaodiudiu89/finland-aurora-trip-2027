@@ -2384,6 +2384,363 @@
   </div>
 </section>
 
+<!-- ===== PACKING ===== -->
+<section class="booking-section" id="packing">
+  <span class="section-label">行李</span>
+  <h2 class="section-title">🧳 行李准备与打包 Checklist</h2>
+  <p class="section-desc">2027.1.2–1.11 · 2 人 · 两位旅行者分别勾选「已准备 / 已装箱」，共用物品只带一份；可增删改物品，进度自动保存在本机浏览器。</p>
+<style>
+/* ===== Packing checklist (self-contained, pk- prefix) ===== */
+.pk-root{--pka:var(--aurora-green,var(--aurora,#6FE3B1));--pkv:#b79aff;--pkam:var(--accent-warm,var(--amber,#F2B36B));--pkrose:#ff8da1;--pkink:var(--text-primary,var(--ink,#EAF1F7));--pkink2:var(--text-secondary,var(--ink-2,#B5C3D3));--pkink3:var(--text-muted,var(--ink-3,#7D8DA2));--pkbg:var(--card-bg,var(--panel,rgba(16,30,50,.72)));--pkbg2:rgba(0,0,0,.18);--pkline:var(--card-border,var(--line,rgba(160,190,220,.16)));font-size:14px;color:var(--pkink2);line-height:1.65}
+.pk-root *{box-sizing:border-box}
+.pk-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:14px}
+.pk-stat{background:var(--pkbg);border:1px solid var(--pkline);border-radius:14px;padding:12px 14px}
+.pk-stat .pk-sl{font-size:12px;color:var(--pkink3)}
+.pk-stat .pk-sv{font-size:21px;font-weight:700;color:var(--pkink);margin:2px 0 6px}
+.pk-stat .pk-sv small{font-size:12px;font-weight:400;color:var(--pkink3);margin-left:6px}
+.pk-track{height:6px;border-radius:3px;background:rgba(127,127,127,.22);overflow:hidden}
+.pk-fill{height:100%;border-radius:3px;background:var(--pka);transition:width .3s}
+.pk-fill.v{background:var(--pkv)}.pk-fill.a{background:var(--pkam)}
+.pk-warn{background:var(--pkbg);border:1px solid var(--pkline);border-left:4px solid var(--pkam);border-radius:10px;padding:10px 14px;font-size:13px;margin-bottom:14px}
+.pk-warn.ok{border-left-color:var(--pka)}
+.pk-warn b{color:var(--pkink)}
+.pk-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.pk-fbtn{background:var(--pkbg);border:1px solid var(--pkline);border-radius:999px;padding:6px 14px;font:inherit;font-size:13px;color:var(--pkink2);cursor:pointer}
+.pk-fbtn[aria-pressed="true"]{background:var(--pka);color:#07110C;border-color:var(--pka);font-weight:700}
+.pk-cat{background:var(--pkbg);border:1px solid var(--pkline);border-radius:16px;margin-bottom:12px;overflow:hidden}
+.pk-ch{display:flex;align-items:center;gap:10px;padding:13px 16px;cursor:pointer;user-select:none}
+.pk-ch:hover{background:rgba(255,255,255,.03)}
+.pk-ch h4{margin:0;font-size:15.5px;color:var(--pkink);font-weight:700;flex:1}
+.pk-ch .pk-cnt{font-size:12px;color:var(--pkink3);white-space:nowrap}
+.pk-ch .pk-arrow{color:var(--pkink3);transition:transform .2s}
+.pk-cat.closed .pk-arrow{transform:rotate(-90deg)}
+.pk-cat.closed .pk-cb-wrap{display:none}
+.pk-cnote{font-size:12.5px;color:var(--pkink3);padding:0 16px 10px;margin-top:-4px}
+.pk-items{border-top:1px solid var(--pkline)}
+.pk-item{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--pkline)}
+.pk-item:last-child{border-bottom:0}
+.pk-item.star{border-left:4px solid var(--pkam);background:linear-gradient(90deg,rgba(242,179,107,.07),transparent 50%)}
+.pk-item.skip{opacity:.45}
+.pk-item.skip .pk-name{text-decoration:line-through}
+.pk-main{flex:1;min-width:220px}
+.pk-name{font-weight:700;color:var(--pkink)}
+.pk-qty{color:var(--pkink2);font-size:13px;margin-left:8px}
+.pk-b{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:4px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+.pk-b.o-e{background:rgba(111,227,177,.14);color:var(--pka)}
+.pk-b.o-s{background:rgba(183,154,255,.16);color:var(--pkv)}
+.pk-b.pri-must{background:var(--pkam);color:#241503}
+.pk-b.pri-rec{background:rgba(183,154,255,.16);color:var(--pkv)}
+.pk-b.pri-opt{background:rgba(148,163,184,.18);color:var(--pkink2)}
+.pk-b.pri-local{background:rgba(255,141,161,.16);color:var(--pkrose)}
+.pk-note{display:block;font-size:12.5px;color:var(--pkink3);margin-top:1px}
+.pk-ctl{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.pk-cb{display:inline-flex;align-items:center;gap:5px;background:var(--pkbg2);border:1px solid var(--pkline);border-radius:8px;padding:7px 10px;font-size:12.5px;cursor:pointer;color:var(--pkink3);user-select:none}
+.pk-cb input{appearance:none;-webkit-appearance:none;width:15px;height:15px;margin:0;border:1.6px solid var(--pkink3);border-radius:4px;cursor:pointer;position:relative;flex:none}
+.pk-cb input:checked{background:var(--pka);border-color:var(--pka)}
+.pk-cb input:checked::after{content:"";position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid #07110C;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.pk-cb.on{border-color:var(--pka);color:var(--pkink)}
+.pk-pair{display:inline-flex;gap:0;border:1px solid var(--pkline);border-radius:8px;overflow:hidden}
+.pk-pair .pk-cb{border:0;border-radius:0;background:var(--pkbg2)}
+.pk-pair .pk-cb+.pk-cb{border-left:1px solid var(--pkline)}
+.pk-pair .pk-who{font-weight:700;color:var(--pkv);margin-right:1px}
+.pk-ibtn{background:none;border:1px solid var(--pkline);border-radius:8px;padding:6px 9px;font:inherit;font-size:12px;color:var(--pkink3);cursor:pointer;line-height:1}
+.pk-ibtn:hover{color:var(--pkink);border-color:var(--pkink3)}
+.pk-ibtn.danger:hover{color:var(--pkrose);border-color:var(--pkrose)}
+.pk-local-tag{font-size:12px;color:var(--pkrose)}
+.pk-add{margin:10px 16px 14px;background:none;border:1px dashed var(--pkline);border-radius:10px;padding:8px 14px;font:inherit;font-size:13px;color:var(--pkink3);cursor:pointer;width:calc(100% - 32px)}
+.pk-add:hover{color:var(--pka);border-color:var(--pka)}
+.pk-edit{flex-basis:100%;display:grid;grid-template-columns:1.4fr .8fr 1fr 1fr;gap:8px;padding:8px 0 2px}
+.pk-edit input,.pk-edit select{background:var(--pkbg2);border:1px solid var(--pkline);border-radius:8px;padding:8px 10px;font:inherit;font-size:13px;color:var(--pkink);width:100%}
+.pk-edit .pk-enote{grid-column:1/-1}
+.pk-ebtns{grid-column:1/-1;display:flex;gap:8px}
+.pk-ebtns .pk-ibtn{padding:8px 16px;font-size:13px}
+.pk-ebtns .pk-save{background:var(--pka);color:#07110C;border-color:var(--pka);font-weight:700}
+@media (max-width:640px){.pk-edit{grid-template-columns:1fr 1fr}.pk-item{padding:10px 12px}.pk-ctl{width:100%;justify-content:flex-start}.pk-add{margin:10px 12px 14px;width:calc(100% - 24px)}}
+.pk-h{font-size:17px;color:var(--pkink);margin:26px 0 10px;font-weight:700}
+.pk-todos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.pk-tg{background:var(--pkbg);border:1px solid var(--pkline);border-radius:14px;padding:14px 16px}
+.pk-tg h5{margin:0 0 8px;font-size:14px;color:var(--pkink)}
+.pk-tg h5 small{color:var(--pkink3);font-weight:400;margin-left:8px}
+.pk-tg .pk-cb{display:flex;width:100%;background:none;border:0;padding:5px 0;border-radius:0;font-size:13px;text-align:left}
+.pk-tg .pk-cb.on{color:var(--pkink3);text-decoration:line-through}
+.pk-foot{font-size:12px;color:var(--pkink3);margin-top:16px}
+</style>
+<div class="pk-root" id="pkRoot">
+  <div class="pk-stats" id="pkStats"></div>
+  <div class="pk-warn" id="pkWarn"></div>
+  <div class="pk-filters" id="pkFilters">
+    <button class="pk-fbtn" data-f="all" aria-pressed="true">全部</button>
+    <button class="pk-fbtn" data-f="unprep" aria-pressed="false">未准备</button>
+    <button class="pk-fbtn" data-f="unpack" aria-pressed="false">未装箱</button>
+    <button class="pk-fbtn" data-f="must" aria-pressed="false">必带 ⭐</button>
+    <button class="pk-fbtn" data-f="opt" aria-pressed="false">可选</button>
+  </div>
+  <div id="pkCats"></div>
+  <h3 class="pk-h">📝 出发前待办</h3>
+  <div class="pk-todos" id="pkTodos"></div>
+  <p class="pk-foot">勾选、编辑与新增会自动保存在本设备浏览器（v1 / v2 两个页面同域共享同一份进度）。行李原则：现有装备优先 · 减少重复购买 · 两人分别核对 · 共用物品只带一份。同一物品只记录一次（如欧标转换插头、耳机），可选物品可标记「不带」后不计入进度，「当地购买」物品不进装箱清单。</p>
+</div>
+<script>
+(function(){
+"use strict";
+var CATS=[
+ ["cl1","👕 贴身衣物与袜子","数量为每人携带量 · 袜子合计每人约 6 双，不再单独增加其他种类"],
+ ["cl2","🧥 保暖衣物","Ubras / 加厚裤 / 羽绒裤每人各 1，不再购买 · 毛衣 / 卫衣 / Patagonia 可按实际搭配精简"],
+ ["sh","👢 鞋子","不再增加第三种鞋"],
+ ["ac","🧤 防寒配件",""],
+ ["fd","🍜 食品","数量为两人合计 · 明确不带：坚果、能量棒、自热火锅 · 携带食品先检查肉类成分与芬兰入境要求"],
+ ["kt","☕ 烧水与用餐用品",""],
+ ["dc","🛂 证件与旅行文件",""],
+ ["el","🔌 电子设备","本次不带电脑、不带相机"],
+ ["fl","✈️ 飞机舒适用品","耳机 / 普通袜子 / 润唇膏与其他分类共用同一条记录，不重复计数"],
+ ["ws","🧴 洗漱与个人护理",""],
+ ["md","💊 药品与健康用品",""],
+ ["ms","🎒 行李与杂物","充气枕 / 坐垫已归入飞机舒适用品，不重复计算"]
+];
+var ITEMS=[
+ {i:"u1",c:"cl1",n:"内裤",q:"6–7条",o:"e",p:"must",t:"住宿期间可清洗"},
+ {i:"u2",c:"cl1",n:"普通文胸",q:"穿1件＋带2件",o:"e",p:"must",t:"不带运动内衣"},
+ {i:"u3",c:"cl1",n:"普通睡衣",q:"1套",o:"e",p:"must",t:"酒店、Airbnb 使用"},
+ {i:"u4",c:"cl1",n:"普通袜子",q:"2–3双",o:"e",p:"must",t:"飞机、室内及日常穿（飞机舒适区共用此条）"},
+ {i:"u5",c:"cl1",n:"加厚保暖袜",q:"3–4双",o:"e",p:"must",t:"含现有厚袜及可能补买的羊毛袜"},
+ {i:"w1",c:"cl2",n:"Ubras 保暖内衣",q:"1套",o:"e",p:"must",t:"已购买，两人共 2 套"},
+ {i:"w2",c:"cl2",n:"猫人加厚保暖裤",q:"1条",o:"e",p:"must",t:"已购买，不再增加"},
+ {i:"w3",c:"cl2",n:"羽绒裤",q:"1条",o:"e",p:"must",t:"已购买，不再增加"},
+ {i:"w4",c:"cl2",n:"厚抓绒衣",q:"按现有配置",o:"e",p:"must",t:"已购买，核对两人分配"},
+ {i:"w5",c:"cl2",n:"厚羽绒服",q:"1件",o:"e",p:"must",t:"主要户外防寒外套"},
+ {i:"w6",c:"cl2",n:"薄羽绒服",q:"1件",o:"e",p:"rec",t:"可选叠穿中间层，不要求每次都穿"},
+ {i:"w7",c:"cl2",n:"Patagonia 衣服",q:"1件",o:"e",p:"rec",t:"型号未确认，不预设保暖性能"},
+ {i:"w8",c:"cl2",n:"毛衣",q:"1–2件",o:"e",p:"rec",t:"可按实际搭配减少"},
+ {i:"w9",c:"cl2",n:"卫衣",q:"1件",o:"e",p:"rec",t:"每人 1 件"},
+ {i:"w10",c:"cl2",n:"普通长裤",q:"1条",o:"e",p:"must",t:"飞机、室内及日常穿"},
+ {i:"s1",c:"sh",n:"Salomon 徒步鞋",q:"按现有配置",o:"e",p:"must",t:"去程穿着"},
+ {i:"s2",c:"sh",n:"厚雪地靴",q:"1双",o:"e",p:"must",t:"已购买，两人共 2 双"},
+ {i:"s3",c:"sh",n:"冰瀑防滑装备",q:"待确认",o:"s",p:"opt",t:"预计活动方提供"},
+ {i:"a1",c:"ac",n:"防寒帽",q:"1顶",o:"e",p:"must",t:"按现有装备"},
+ {i:"a2",c:"ac",n:"防寒手套",q:"1双",o:"e",p:"must",t:"已购买"},
+ {i:"a3",c:"ac",n:"围巾／脖套",q:"1条",o:"e",p:"rec",t:""},
+ {i:"a4",c:"ac",n:"防寒面罩",q:"按实际数量",o:"e",p:"must",t:"已购买，核对两人配置"},
+ {i:"a5",c:"ac",n:"暖宝宝",q:"现有数量",o:"s",p:"must",t:"已购买"},
+ {i:"a6",c:"ac",n:"暖脚贴",q:"现有数量",o:"s",p:"must",t:"已购买"},
+ {i:"a7",c:"ac",n:"可穿戴暖手用品",q:"按实际数量",o:"s",p:"rec",t:"已购买，确认具体类型"},
+ {i:"f1",c:"fd",n:"袋装泡面",q:"6包左右",o:"s",p:"must",t:"检查肉类成分及芬兰入境要求"},
+ {i:"f2",c:"fd",n:"酸辣粉／米粉",q:"2包",o:"s",p:"rec",t:"同样注意入境要求"},
+ {i:"f3",c:"fd",n:"饼干",q:"1–2包",o:"s",p:"rec",t:""},
+ {i:"f4",c:"fd",n:"巧克力",q:"1包",o:"s",p:"rec",t:""},
+ {i:"f5",c:"fd",n:"姜茶蜂蜜",q:"适量",o:"s",p:"must",s:1,t:"重点物品，出发当天核对"},
+ {i:"f6",c:"fd",n:"茶包",q:"5–10包",o:"s",p:"opt",t:""},
+ {i:"f7",c:"fd",n:"热可可粉",q:"适量",o:"s",p:"opt",t:"优先考虑当地购买"},
+ {i:"f8",c:"fd",n:"鸭舌等肉类零食",q:"按需",o:"s",p:"local",t:"不从非欧盟国家携带入境，确认当地能否购买"},
+ {i:"f9",c:"fd",n:"当地采购：香肠、鸡蛋、牛奶、面包、水果、热巧克力等",q:"",o:"s",p:"local",t:"抵达后超市采购，不进装箱清单"},
+ {i:"k1",c:"kt",n:"便携电热烧水壶",q:"1个",o:"s",p:"must",s:1,t:"确认支持 230V"},
+ {i:"k2",c:"kt",n:"烧水壶电源线",q:"1条（如需）",o:"s",p:"must",s:1,t:""},
+ {i:"k3",c:"kt",n:"折叠泡面碗",q:"1个",o:"s",p:"must",s:1,t:"已购买，测试耐高温"},
+ {i:"k4",c:"kt",n:"保温杯",q:"2个或1个大容量",o:"s",p:"must",s:1,t:""},
+ {i:"k5",c:"kt",n:"欧标转换插头",q:"1–2个",o:"s",p:"must",s:1,t:"食品区 / 电子设备区共用此一条记录"},
+ {i:"k6",c:"kt",n:"筷子／便携餐具",q:"1–2套",o:"s",p:"rec",t:""},
+ {i:"k7",c:"kt",n:"食品密封袋",q:"少量",o:"s",p:"opt",t:""},
+ {i:"k8",c:"kt",n:"纸巾／湿巾",q:"适量",o:"s",p:"rec",t:"全程通用（洗漱区共用此条）"},
+ {i:"d1",c:"dc",n:"中国护照",q:"每人1本",o:"e",p:"must",s:1,t:""},
+ {i:"d2",c:"dc",n:"有效申根签证",q:"每人确认",o:"e",p:"must",s:1,t:"出发前必须检查"},
+ {i:"d3",c:"dc",n:"新加坡 PR 卡",q:"持有人携带",o:"e",p:"must",s:1,t:""},
+ {i:"d4",c:"dc",n:"国际往返机票（电子版）",q:"",o:"s",p:"must",t:"保存离线副本"},
+ {i:"d5",c:"dc",n:"芬兰境内航班凭证（电子版）",q:"",o:"s",p:"must",t:"核对日期"},
+ {i:"d6",c:"dc",n:"Airbnb 预订信息（电子版）",q:"",o:"s",p:"must",t:"地址、入住说明"},
+ {i:"d7",c:"dc",n:"NLV 玻璃屋预订信息（电子版）",q:"",o:"s",p:"must",t:"保存确认邮件"},
+ {i:"d8",c:"dc",n:"旅游保险保单（电子版）",q:"",o:"s",p:"must",t:"检查冬季活动保障"},
+ {i:"d9",c:"dc",n:"各项活动预订凭证（电子版）",q:"",o:"s",p:"must",t:"保存集合地点"},
+ {i:"d10",c:"dc",n:"巴士车票（电子版）",q:"",o:"s",p:"must",t:"Rovaniemi → Saariselkä"},
+ {i:"d11",c:"dc",n:"餐厅预订确认（电子版）",q:"",o:"s",p:"rec",t:"Nili 已确认，Taiga 待预约"},
+ {i:"d12",c:"dc",n:"护照及签证电子备份",q:"每人1份",o:"e",p:"must",t:"安全保存"},
+ {i:"d13",c:"dc",n:"信用卡／银行卡",q:"每人至少1张",o:"e",p:"must",t:"确认境外支付"},
+ {i:"d14",c:"dc",n:"少量欧元现金",q:"共用",o:"s",p:"rec",t:"备用"},
+ {i:"d15",c:"dc",n:"紧急联系人及保险电话",q:"电子版",o:"s",p:"rec",t:"保存离线"},
+ {i:"e1",c:"el",n:"手机",q:"每人1部",o:"e",p:"must",t:""},
+ {i:"e2",c:"el",n:"手机充电线",q:"每人1条",o:"e",p:"must",t:""},
+ {i:"e3",c:"el",n:"充电头",q:"1–2个",o:"s",p:"rec",t:""},
+ {i:"e4",c:"el",n:"耳机",q:"每人1副",o:"e",p:"must",t:"飞机舒适区共用此条"},
+ {i:"e5",c:"el",n:"平板电脑",q:"1台",o:"s",p:"opt",t:""},
+ {i:"e6",c:"el",n:"平板充电线",q:"如带平板",o:"s",p:"opt",t:"配套携带"},
+ {i:"e7",c:"el",n:"充电宝",q:"按需",o:"s",p:"rec",t:"随身携带，核对航空规定"},
+ {i:"e8",c:"el",n:"芬兰 eSIM／国际漫游",q:"每人确认",o:"e",p:"must",t:"出发前开通"},
+ {i:"p1",c:"fl",n:"充气颈枕／旅行枕",q:"按需",o:"e",p:"rec",s:1,t:"新增 · 确认收纳体积及机上使用规定"},
+ {i:"p2",c:"fl",n:"充气坐垫",q:"按需",o:"e",p:"rec",s:1,t:"新增 · 长途飞机使用"},
+ {i:"p3",c:"fl",n:"眼罩",q:"按需",o:"e",p:"opt",t:""},
+ {i:"p4",c:"fl",n:"耳塞",q:"按需",o:"e",p:"opt",t:""},
+ {i:"h1",c:"ws",n:"牙刷",q:"每人1支",o:"e",p:"must",t:""},
+ {i:"h2",c:"ws",n:"牙膏",q:"1支",o:"s",p:"must",t:"可共用"},
+ {i:"h3",c:"ws",n:"牙线",q:"1盒",o:"s",p:"rec",t:""},
+ {i:"h4",c:"ws",n:"洗面奶",q:"按需",o:"s",p:"rec",t:""},
+ {i:"h5",c:"ws",n:"卸妆用品",q:"按需",o:"e",p:"opt",t:"如适用"},
+ {i:"h6",c:"ws",n:"洗发水",q:"小瓶",o:"s",p:"rec",t:"视住宿提供情况"},
+ {i:"h7",c:"ws",n:"护发素",q:"小瓶",o:"s",p:"opt",t:""},
+ {i:"h8",c:"ws",n:"沐浴露",q:"小瓶",o:"s",p:"opt",t:""},
+ {i:"h9",c:"ws",n:"一次性毛巾",q:"若干",o:"s",p:"must",s:1,t:"新增 · 出发前检查是否准备"},
+ {i:"h10",c:"ws",n:"梳子",q:"1把",o:"s",p:"rec",t:""},
+ {i:"h11",c:"ws",n:"发圈／发夹",q:"适量",o:"e",p:"opt",t:"按需"},
+ {i:"h12",c:"ws",n:"保湿面霜",q:"1瓶",o:"s",p:"rec",t:""},
+ {i:"h13",c:"ws",n:"润唇膏",q:"每人1支",o:"e",p:"rec",t:"飞机干燥时使用（飞机区共用此条）"},
+ {i:"h14",c:"ws",n:"身体乳",q:"小瓶",o:"s",p:"rec",t:""},
+ {i:"h15",c:"ws",n:"护手霜",q:"1支",o:"s",p:"rec",t:""},
+ {i:"h16",c:"ws",n:"防晒霜",q:"1支",o:"s",p:"rec",t:""},
+ {i:"h17",c:"ws",n:"日常护肤品",q:"按需",o:"e",p:"rec",t:"尽量精简"},
+ {i:"h18",c:"ws",n:"化妆品",q:"按需",o:"e",p:"opt",t:"个人选择"},
+ {i:"h19",c:"ws",n:"卫生巾／卫生用品",q:"按需",o:"e",p:"rec",t:"根据需要"},
+ {i:"h20",c:"ws",n:"隐形眼镜／护理液",q:"如适用",o:"e",p:"opt",t:"个人用品"},
+ {i:"h21",c:"ws",n:"眼镜",q:"如适用",o:"e",p:"opt",t:"个人用品"},
+ {i:"m1",c:"md",n:"个人日常处方药",q:"按疗程",o:"e",p:"must",t:"保留原包装"},
+ {i:"m2",c:"md",n:"常用补剂",q:"按需",o:"e",p:"opt",t:"根据日常情况"},
+ {i:"m3",c:"md",n:"退烧止痛药",q:"少量",o:"s",p:"rec",t:""},
+ {i:"m4",c:"md",n:"肠胃不适用药",q:"少量",o:"s",p:"rec",t:"按个人适用情况"},
+ {i:"m5",c:"md",n:"晕车药",q:"按需",o:"s",p:"rec",t:""},
+ {i:"m6",c:"md",n:"创可贴",q:"少量",o:"s",p:"rec",t:""},
+ {i:"m7",c:"md",n:"水泡贴",q:"少量",o:"s",p:"rec",t:"徒步备用"},
+ {i:"m8",c:"md",n:"生理盐水鼻喷雾",q:"可选",o:"s",p:"opt",t:"干燥环境"},
+ {i:"m9",c:"md",n:"个人特殊药品",q:"按需",o:"e",p:"opt",t:"保留原包装"},
+ {i:"g1",c:"ms",n:"托运行李箱",q:"按行李额",o:"s",p:"must",t:"出发前称重"},
+ {i:"g2",c:"ms",n:"随身背包",q:"每人1个",o:"e",p:"must",t:"证件、电子设备"},
+ {i:"g3",c:"ms",n:"衣物收纳袋",q:"若干",o:"s",p:"rec",t:"整理厚衣服"},
+ {i:"g4",c:"ms",n:"脏衣袋",q:"1–2个",o:"s",p:"rec",t:""},
+ {i:"g5",c:"ms",n:"防水密封袋",q:"少量",o:"s",p:"rec",t:"保护电子设备"},
+ {i:"g6",c:"ms",n:"折叠购物袋",q:"1个",o:"s",p:"rec",t:"超市采购"},
+ {i:"g7",c:"ms",n:"小垃圾袋",q:"少量",o:"s",p:"opt",t:"食品包装等"},
+ {i:"g8",c:"ms",n:"太阳镜",q:"每人1副",o:"e",p:"opt",t:"雪地反光"}
+];
+var TODOS=[
+ ["t1","行程确认",["确认两人护照及申根签证","确认新加坡 PR 卡及返新加坡文件","核对国际航班和芬兰境内航班","确认 Airbnb 入住说明","确认 NLV 玻璃屋预订","确认 Sampo 破冰船接送地点","确认 Korouoma 冰瀑活动及防滑装备","确认 Snowtrain 集合地点","确认 Saariselkä 巴士车票","确认雪地摩托活动安排","确认 Husky 自驾活动是否预订","确认 Nili 餐厅：1月6日 18:30","12月预约 Taiga 餐厅：目标 1月5日 17:00","检查旅游保险及冬季活动保障"]],
+ ["t2","住宿与食品",["确认 Airbnb 厨房及锅具情况","确认 NLV 玻璃屋是否允许泡面","确认便携烧水壶支持 230V","测试折叠泡面碗是否耐高温","查看 1月3日 超市营业时间","安排抵达后采购食物","检查携带食品的芬兰入境规定"]],
+ ["t3","出发前一周",["查看芬兰天气预报","两人试穿完整保暖装备","试穿雪地靴","检查袜子、帽子、手套、面罩","测试烧水壶","测试充电宝和充电线","下载离线地图","保存全部预订凭证","检查行李额","确认平板是否携带","检查充气枕、充气坐垫","检查一次性毛巾是否准备","检查姜茶蜂蜜是否装箱"]],
+ ["t4","出发当天重点检查",["护照","申根签证","PR 卡","手机","钱包及银行卡","耳机","充电宝","充电线","姜茶蜂蜜","便携烧水壶","折叠泡面碗","保温杯","欧标转换插头","泡面及食品","充气枕","充气坐垫","一次性毛巾","两人的雪地靴","两人的保暖衣裤","帽子、手套、面罩","必要药品"]]
+];
+var KEY="fa27-pack-v1";
+var st={items:{},custom:[],del:[],todos:{}};
+try{var raw=localStorage.getItem(KEY);if(raw){var p=JSON.parse(raw);if(p&&typeof p==="object"){st.items=p.items||{};st.custom=p.custom||[];st.del=p.del||[];st.todos=p.todos||{}}}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+var filter="all",editing=null;
+function esc(x){return String(x==null?"":x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
+function all(){var base=ITEMS.filter(function(it){return st.del.indexOf(it.i)<0});return base.concat(st.custom)}
+function ov(it){var o=st.items[it.i]||{};return{name:o.name!=null?o.name:it.n,qty:o.qty!=null?o.qty:it.q,note:o.note!=null?o.note:it.t,owner:o.owner||it.o,pri:o.pri||it.p,star:it.s,p1:!!o.p1,p2:!!o.p2,b1:!!o.b1,b2:!!o.b2,skip:!!o.skip}}
+function active(v){return v.pri!=="local"&&!v.skip}
+function stats(){
+ var pu=0,pt=0,bu=0,bt=0,mDone=0,mTot=0,mMiss=[];
+ all().forEach(function(it){var v=ov(it);if(!active(v))return;var n=v.owner==="e"?2:1;
+  pt+=n;bt+=n;pu+=(v.p1?1:0)+(v.owner==="e"&&v.p2?1:0);bu+=(v.b1?1:0)+(v.owner==="e"&&v.b2?1:0);
+  if(v.pri==="must"){mTot++;var full=v.owner==="e"?(v.b1&&v.b2):v.b1;if(full)mDone++;else mMiss.push(v.name)}});
+ return{pu:pu,pt:pt,bu:bu,bt:bt,mDone:mDone,mTot:mTot,mMiss:mMiss}
+}
+function pct(a,b){return b?Math.round(a/b*100):0}
+function renderStats(){
+ var s=stats();
+ document.getElementById("pkStats").innerHTML=
+  '<div class="pk-stat"><div class="pk-sl">🛍️ 准备进度</div><div class="pk-sv">'+pct(s.pu,s.pt)+'%<small>'+s.pu+' / '+s.pt+'</small></div><div class="pk-track"><div class="pk-fill" style="width:'+pct(s.pu,s.pt)+'%"></div></div></div>'+
+  '<div class="pk-stat"><div class="pk-sl">🧳 装箱进度</div><div class="pk-sv">'+pct(s.bu,s.bt)+'%<small>'+s.bu+' / '+s.bt+'</small></div><div class="pk-track"><div class="pk-fill v" style="width:'+pct(s.bu,s.bt)+'%"></div></div></div>'+
+  '<div class="pk-stat"><div class="pk-sl">⭐ 必带物品完成率（装箱）</div><div class="pk-sv">'+pct(s.mDone,s.mTot)+'%<small>'+s.mDone+' / '+s.mTot+'</small></div><div class="pk-track"><div class="pk-fill a" style="width:'+pct(s.mDone,s.mTot)+'%"></div></div></div>';
+ var w=document.getElementById("pkWarn");
+ if(s.mMiss.length){var list=s.mMiss.slice(0,14).join("、")+(s.mMiss.length>14?" 等 "+s.mMiss.length+" 项":"");w.className="pk-warn";w.innerHTML="⚠️ <b>尚未装箱的必带物品（"+s.mMiss.length+"）：</b>"+esc(list)}
+ else{w.className="pk-warn ok";w.innerHTML="✅ <b>全部必带物品已装箱。</b>"}
+}
+function show(it,v){
+ if(filter==="all")return true;
+ if(filter==="must")return v.pri==="must"&&active(v);
+ if(filter==="opt")return v.pri==="opt"||v.pri==="local"||v.skip;
+ if(!active(v))return false;
+ if(filter==="unprep")return v.owner==="e"?!(v.p1&&v.p2):!v.p1;
+ if(filter==="unpack")return v.owner==="e"?!(v.b1&&v.b2):!v.b1;
+ return true
+}
+function cb(id,k,on,lab,who){return '<label class="pk-cb'+(on?" on":"")+'">'+(who?'<span class="pk-who">'+who+'</span>':'')+'<input type="checkbox" data-id="'+esc(id)+'" data-k="'+k+'"'+(on?" checked":"")+'>'+lab+'</label>'}
+function rowHTML(it){
+ var v=ov(it);
+ if(editing===it.i){
+  return '<div class="pk-item"><div class="pk-edit">'+
+   '<input data-e="name" value="'+esc(v.name)+'" placeholder="物品名称">'+
+   '<input data-e="qty" value="'+esc(v.qty)+'" placeholder="数量">'+
+   '<select data-e="owner"><option value="e"'+(v.owner==="e"?" selected":"")+'>每人（A / B 分别勾）</option><option value="s"'+(v.owner==="s"?" selected":"")+'>共用（只带一份）</option></select>'+
+   '<select data-e="pri"><option value="must"'+(v.pri==="must"?" selected":"")+'>必带</option><option value="rec"'+(v.pri==="rec"?" selected":"")+'>推荐</option><option value="opt"'+(v.pri==="opt"?" selected":"")+'>可选</option><option value="local"'+(v.pri==="local"?" selected":"")+'>当地购买</option></select>'+
+   '<input class="pk-enote" data-e="note" value="'+esc(v.note)+'" placeholder="备注">'+
+   '<div class="pk-ebtns"><button class="pk-ibtn pk-save" data-act="save" data-id="'+esc(it.i)+'">保存</button><button class="pk-ibtn" data-act="cancel">取消</button><button class="pk-ibtn danger" data-act="del" data-id="'+esc(it.i)+'">删除物品</button></div>'+
+  '</div></div>'
+ }
+ var badges='<span class="pk-b o-'+v.owner+'">'+(v.owner==="e"?"每人":"共用")+'</span><span class="pk-b pri-'+v.pri+'">'+({must:"必带",rec:"推荐",opt:"可选",local:"当地购买"})[v.pri]+'</span>';
+ var ctl="";
+ if(v.pri==="local"){ctl='<span class="pk-local-tag">🛒 抵达后购买，不计入装箱</span>'}
+ else if(v.owner==="e"){
+  ctl='<span class="pk-pair">'+cb(it.i,"p1",v.p1,"准备","A")+cb(it.i,"b1",v.b1,"装箱","A")+'</span>'+
+      '<span class="pk-pair">'+cb(it.i,"p2",v.p2,"准备","B")+cb(it.i,"b2",v.b2,"装箱","B")+'</span>'
+ }else{ctl='<span class="pk-pair">'+cb(it.i,"p1",v.p1,"已准备","")+cb(it.i,"b1",v.b1,"已装箱","")+'</span>'}
+ if(v.pri==="opt"&&v.pri!=="local"){ctl+='<button class="pk-ibtn" data-act="skip" data-id="'+esc(it.i)+'">'+(v.skip?"恢复携带":"不带")+'</button>'}
+ ctl+='<button class="pk-ibtn" data-act="edit" data-id="'+esc(it.i)+'" title="编辑">✎</button>';
+ return '<div class="pk-item'+(v.star?" star":"")+(v.skip?" skip":"")+'"><div class="pk-main"><span class="pk-name">'+(v.star?"⭐ ":"")+esc(v.name)+'</span>'+(v.qty?'<span class="pk-qty">× '+esc(v.qty)+'</span>':"")+badges+(v.note?'<span class="pk-note">'+esc(v.note)+'</span>':"")+'</div><div class="pk-ctl">'+ctl+'</div></div>'
+}
+var collapsed={};
+function render(){
+ renderStats();
+ var html="";
+ CATS.forEach(function(c){
+  var list=all().filter(function(it){return it.c===c[0]});
+  var vis=list.filter(function(it){return show(it,ov(it))});
+  if(filter!=="all"&&!vis.length)return;
+  var done=0,tot=0;
+  list.forEach(function(it){var v=ov(it);if(!active(v))return;tot++;var full=v.owner==="e"?(v.b1&&v.b2):v.b1;if(full)done++});
+  html+='<div class="pk-cat'+(collapsed[c[0]]?" closed":"")+'"><div class="pk-ch" data-cat="'+c[0]+'"><h4>'+c[1]+'</h4><span class="pk-cnt">装箱 '+done+'/'+tot+'</span><span class="pk-arrow">▾</span></div>'+
+   '<div class="pk-cb-wrap">'+(c[2]?'<div class="pk-cnote">'+esc(c[2])+'</div>':"")+'<div class="pk-items">'+
+   (filter==="all"?list:vis).map(rowHTML).join("")+
+   '</div><button class="pk-add" data-act="add" data-cat="'+c[0]+'">＋ 添加物品</button></div></div>'
+ });
+ document.getElementById("pkCats").innerHTML=html;
+ var th="";
+ TODOS.forEach(function(g){
+  var done=g[2].filter(function(_,idx){return st.todos[g[0]+"_"+idx]}).length;
+  th+='<div class="pk-tg"><h5>'+esc(g[1])+'<small>'+done+' / '+g[2].length+'</small></h5>'+
+   g[2].map(function(t,idx){var on=!!st.todos[g[0]+"_"+idx];return '<label class="pk-cb'+(on?" on":"")+'"><input type="checkbox" data-todo="'+g[0]+"_"+idx+'"'+(on?" checked":"")+'>'+esc(t)+'</label>'}).join("")+'</div>'
+ });
+ document.getElementById("pkTodos").innerHTML=th;
+}
+function mut(id){st.items[id]=st.items[id]||{};return st.items[id]}
+var root=document.getElementById("pkRoot");
+root.addEventListener("change",function(ev){
+ var t=ev.target;
+ if(t.dataset&&t.dataset.todo){st.todos[t.dataset.todo]=t.checked;save();render();return}
+ if(t.dataset&&t.dataset.id&&t.dataset.k){mut(t.dataset.id)[t.dataset.k]=t.checked;save();render()}
+});
+root.addEventListener("click",function(ev){
+ var b=ev.target.closest("[data-act]");
+ if(b){
+  var act=b.dataset.act,id=b.dataset.id;
+  if(act==="skip"){var o=mut(id);o.skip=!o.skip;save();render()}
+  else if(act==="edit"){editing=id;render()}
+  else if(act==="cancel"){editing=null;render()}
+  else if(act==="add"){var nid="c"+Date.now();st.custom.push({i:nid,c:b.dataset.cat,n:"",q:"",o:"s",p:"rec",t:""});editing=nid;save();render()}
+  else if(act==="del"){
+   var ci=-1;st.custom.some(function(x,idx){if(x.i===id){ci=idx;return true}return false});
+   if(ci>=0)st.custom.splice(ci,1);else if(st.del.indexOf(id)<0)st.del.push(id);
+   delete st.items[id];editing=null;save();render()
+  }
+  else if(act==="save"){
+   var wrap=b.closest(".pk-edit"),val=function(k){var el=wrap.querySelector('[data-e="'+k+'"]');return el?el.value:""};
+   var name=val("name").trim();if(!name){name="未命名物品"}
+   var cu=null;st.custom.some(function(x){if(x.i===id){cu=x;return true}return false});
+   if(cu){cu.n=name;cu.q=val("qty");cu.t=val("note");cu.o=val("owner");cu.p=val("pri")}
+   else{var o=mut(id);o.name=name;o.qty=val("qty");o.note=val("note");o.owner=val("owner");o.pri=val("pri")}
+   editing=null;save();render()
+  }
+  return
+ }
+ var h=ev.target.closest(".pk-ch");
+ if(h){var c=h.dataset.cat;collapsed[c]=!collapsed[c];h.parentNode.classList.toggle("closed",!!collapsed[c])}
+});
+document.getElementById("pkFilters").addEventListener("click",function(ev){
+ var b=ev.target.closest(".pk-fbtn");if(!b)return;
+ filter=b.dataset.f;
+ this.querySelectorAll(".pk-fbtn").forEach(function(x){x.setAttribute("aria-pressed",String(x===b))});
+ render();
+});
+render();
+})();
+</script>
+
+</section>
+
 <!-- ===== REFERENCES ===== -->
 <section class="booking-section">
   <span class="section-label">参考资料</span>
